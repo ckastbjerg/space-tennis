@@ -1,0 +1,96 @@
+body {
+    background: linear-gradient(#002121, #003333);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game {
+    position: relative;
+}
+
+
+/* WORLD */
+
+.world {
+    box-shadow: inset 0 0 10vh #002222;
+    width: 75vh;
+    height: 75vh;
+    background-color: #005555;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.world::after {
+    content: '';
+    background-color: #009999;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    position: absolute;
+    top: -7.5vh;
+    left: calc(50% - 2.5vh);
+}
+
+
+/* PLAYER */
+
+.player {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 75vh;
+    height: 75vh;
+    border-radius: 50%;
+}
+
+.player__body {
+    content: '';
+    background-color: pink;
+    width: 5vh;
+    height: 8vh;
+    border-radius: 2.5vh;
+    position: absolute;
+    top: -5vh;
+    left: calc(50% - 2.5vh);
+    transition: 100ms;
+}
+
+.player__body.is-down,
+.player__body.is-going-down {
+    top: -1.5vh;
+}
+
+.player__eye {
+    background-color: #fff;
+    width: 2vh;
+    height: 2vh;
+    position: absolute;
+    top: .75vh;
+    left: .5vh;
+    border-radius: 50%;
+}
+
+.player__eye::before {
+    content: '';
+    background-color: #444444;
+    position: absolute;
+    top: .75vh;
+    left: .5vh;
+    width: 1vh;
+    height: 1vh;
+    border-radius: 1vh;
+}
+
+.player__eye + .player__eye {
+    left: 2.5vh;
+}
+
+.player--1 {
+    transform: rotate(90deg);
+}
+
+.player--2 {
+    transform: rotate(270deg);
+}
