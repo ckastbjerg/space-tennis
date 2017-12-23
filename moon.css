@@ -1,0 +1,31 @@
+.moon {
+    background-color: rgb(191, 191, 191);
+    width: 75vh;
+    height: 75vh;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    border: 4px solid rgb(77, 81, 82);
+}
+
+.moon::before {
+    border-radius: 50%;
+    content: '';
+    width: 25vh;
+    height: 25vh;
+    position: absolute;
+    top: 10vh;
+    left: 15vh;
+    background-color: rgb(170, 170, 170);
+}
+
+.moon::after {
+    border-radius: 50%;
+    content: '';
+    width: 15vh;
+    height: 15vh;
+    position: absolute;
+    top: 42vh;
+    left: 17vh;
+    background-color: rgb(170, 170, 170);
+}

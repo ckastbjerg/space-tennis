@@ -1,8 +1,29 @@
 body {
-    background: linear-gradient(#002121, #003333);
+    background: #222;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.title {
+    font-family: Helvetica;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-weight: 200;
+}
+
+.start {
+    position: absolute;
+    top: 12px;
+    right: 12px;
 }
 
 .game {
@@ -13,30 +34,31 @@ body {
 /* WORLD */
 
 .world {
-    box-shadow: inset 0 0 10vh #002222;
     width: 75vh;
     height: 75vh;
-    background-color: #005555;
-    border-radius: 50%;
     position: relative;
     z-index: 1;
 }
 
-.world::after {
-    content: '';
-    background-color: #009999;
+.ball {
+    background-color: #EE6565;
     width: 5vh;
     height: 5vh;
     border-radius: 50%;
     position: absolute;
-    top: -7.5vh;
+    top: -9vh;
     left: calc(50% - 2.5vh);
+
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 /* PLAYER */
 
-.player {
+.player-wrapper {
     top: 0;
     left: 0;
     position: absolute;
@@ -45,9 +67,9 @@ body {
     border-radius: 50%;
 }
 
-.player__body {
+.player {
     content: '';
-    background-color: pink;
+    background-color: #A1F6BE;
     width: 5vh;
     height: 8vh;
     border-radius: 2.5vh;
@@ -57,9 +79,14 @@ body {
     transition: 100ms;
 }
 
-.player__body.is-down,
-.player__body.is-going-down {
+.player.is-down,
+.player.is-going-down {
     top: -1.5vh;
+}
+
+.player__head {
+    width: 5vh;
+    height: 5vh;
 }
 
 .player__eye {
@@ -87,10 +114,34 @@ body {
     left: 2.5vh;
 }
 
-.player--1 {
-    transform: rotate(90deg);
+.player__arm {
+    width: 5vh;
+    height: 1vh;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2vh;
+    left: -3vh;
+    background-color: #A1F6BE;
+    border-radius: 1vh;
+    display: none;
 }
 
-.player--2 {
-    transform: rotate(270deg);
+.player.is-punching .player__arm {
+    display: block;
+}
+
+.game.is-going-left .player__arm {
+    left: 3vh;
+    transform: rotate(135deg);
+}
+
+.player__bat {
+    content: '';
+    background-color: #A1F6BE;
+    width: 3vh;
+    height: 3vh;
+    position: absolute;
+    top: -1vh;
+    left: -2vh;
+    border-radius: 50%;
 }
